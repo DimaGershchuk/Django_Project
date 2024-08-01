@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models import Q, UniqueConstraint
 
 
 class Author(models.Model):
@@ -8,6 +7,9 @@ class Author(models.Model):
 
     class Meta:
         verbose_name_plural = 'Автори'
+
+    def __str__(self):
+        return self.name
 
 
 class Book(models.Model):
@@ -28,6 +30,9 @@ class Book(models.Model):
             models.UniqueConstraint(fields=['publication_date'], name='unique_publication_date')
         ]
 
+    def __str__(self):
+        return self.title
+
 
 class Publisher(models.Model):
 
@@ -37,8 +42,12 @@ class Publisher(models.Model):
     class Meta:
         verbose_name_plural = 'Видавництва'
 
+    def __str__(self):
+        return self.name
+
 
 class PublisherCompany(models.Model):
+    name = models.CharField(max_length=50)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
     published_date = models.DateField()
@@ -48,14 +57,14 @@ class PublisherCompany(models.Model):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique_for_month='created_date')
     created_date = models.DateField()
 
     class Meta:
         verbose_name_plural = 'Категорії'
-        constraints = [
-            models.UniqueConstraint(fields=['name', 'created_date'], name='unique_category_name_per_month')
-        ]
+
+    def __str__(self):
+        return self.name
 
 
 
