@@ -1,0 +1,12 @@
+
+<h1>Книги автора {{ Author.name }}</h1>
+<p>Вік: {{ Author.age }}</p>
+
+<h2>Список книг:</h2>
+<ul>
+    {% for book in Books %}
+        <li>{{ book.title }} (Опубліковано: {{ book.publication_date }})</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'authors' %}">Назад до списку авторів</a>

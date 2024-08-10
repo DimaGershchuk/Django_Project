@@ -15,10 +15,9 @@ class Author(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=25)
     publication_date = models.DateField()
-    author = models.OneToOneField(
+    author = models.ForeignKey(
         Author,
         on_delete=models.CASCADE,
-        unique=True
     )
     rating = models.IntegerField()
 
@@ -35,7 +34,6 @@ class Book(models.Model):
 
 
 class Publisher(models.Model):
-
     name = models.CharField(max_length=50)
     books = models.ManyToManyField(Book,  through='PublisherCompany')
 
@@ -47,7 +45,6 @@ class Publisher(models.Model):
 
 
 class PublisherCompany(models.Model):
-    name = models.CharField(max_length=50)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
     published_date = models.DateField()
