@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
 
 <h1>Книги автора {{ Author.name }}</h1>
 <p>Вік: {{ Author.age }}</p>
@@ -8,5 +11,4 @@
         <li>{{ book.title }} (Опубліковано: {{ book.publication_date }})</li>
     {% endfor %}
 </ul>
-
-<a href="{% url 'authors' %}">Назад до списку авторів</a>
+{% endblock %}

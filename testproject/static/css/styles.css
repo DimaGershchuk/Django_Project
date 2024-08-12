@@ -27,6 +27,18 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+.content-wrapper{
+    display: flex;
+}
+
+.sidebar {
+
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
 footer {
     text-align: center;
     padding: 10px 0;
@@ -36,3 +48,4 @@ footer {
     width: 100%;
     bottom: 0;
 }
+
