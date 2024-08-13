@@ -3,9 +3,5 @@
 {% block title %}Authors{% endblock %}
 
 {% block content %}
-    <ul>
-        {% for author in Authors %}
-            <li><a href="{% url 'author_books' author.id %}">{{ author.name }}</a></li>
-        {% endfor %}
-    </ul>
+
 {% endblock %}

@@ -32,7 +32,26 @@ nav ul li a:hover {
 }
 
 .sidebar {
+    width: 25%;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
 
+.sidebar p {
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.sidebar p a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.sidebar p a:hover {
+    text-decoration: underline;
+}
 
 .main-content {
     flex: 1;

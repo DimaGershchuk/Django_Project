@@ -13,7 +13,7 @@ def home_view(request):
 
 def author_list(request):
     author = Author.objects.filter(age__lte=35)
-    return render(request, 'authors_list.html', {'Authors': author})
+    return render(request, 'authors_list.html', {'Authors': author, 'all_authors': get_sidebar_authors()})
 
 
 def author_books_view(request, author_id):
